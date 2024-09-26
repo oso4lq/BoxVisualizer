@@ -36,39 +36,62 @@ const App: React.FC = () => {
 
     return (
         <StyledContainer>
-            <Form layout="inline" className="box-form">
-                <Form.Item label="Length">
-                    <InputNumber
-                        min={0.1}
-                        value={length}
-                        onChange={(value) => setLength(value || 1)}
-                    />
-                </Form.Item>
-                <Form.Item label="Width">
-                    <InputNumber
-                        min={0.1}
-                        value={width}
-                        onChange={(value) => setWidth(value || 1)}
-                    />
-                </Form.Item>
-                <Form.Item label="Height">
-                    <InputNumber
-                        min={0.1}
-                        value={height}
-                        onChange={(value) => setHeight(value || 1)}
-                    />
-                </Form.Item>
-                <Form.Item>
-                    <Button type="primary" onClick={handleCalculate}>
-                        Calculate
-                    </Button>
-                </Form.Item>
-            </Form>
-            <Canvas className="canvas">
+            <MenuWrapper>
+                <StyledTitle>3D Box Visualizer</StyledTitle>
+                <Form layout="inline" className="box-form">
+                    <Form.Item label="Length">
+                        <InputNumber
+                            min={0.1}
+                            value={length}
+                            onChange={(value) => setLength(value || 1)}
+                        />
+                    </Form.Item>
+                    <Form.Item label="Width">
+                        <InputNumber
+                            min={0.1}
+                            value={width}
+                            onChange={(value) => setWidth(value || 1)}
+                        />
+                    </Form.Item>
+                    <Form.Item label="Height">
+                        <InputNumber
+                            min={0.1}
+                            value={height}
+                            onChange={(value) => setHeight(value || 1)}
+                        />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" onClick={handleCalculate}>
+                            Calculate
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </MenuWrapper>
+            <Canvas
+                className="canvas"
+                style={{ background: '#113B51' }}
+                shadows camera={{ position: [2, 2, 4], fov: 50 }}
+            >
                 <ambientLight intensity={0.5} />
-                <directionalLight position={[10, 10, 5]} intensity={1} />
-                {boxData && <Box meshData={boxData} />}
+                <directionalLight
+                    position={[10, 10, 10]}
+                    intensity={1}
+                    castShadow
+                    shadow-mapSize-width={1024}
+                    shadow-mapSize-height={1024}
+                />
+                <pointLight position={[-10, -10, -10]} intensity={0.5} />
                 <OrbitControls />
+
+                {/* The Box */}
+                {boxData && <Box meshData={boxData} />}
+
+                {/* Plane for shadows */}
+                <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
+                    <planeGeometry args={[20, 20]} />
+                    <meshStandardMaterial color="#ffffff" />
+                </mesh>
+
             </Canvas>
         </StyledContainer>
     );
@@ -80,6 +103,21 @@ const StyledContainer = styled.div`
     align-items: center;
     height: 100vh;
     background-color: #6F90A2;
+`;
+
+const MenuWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+    margin: 20px 0;
+    width: 33%;
+`;
+
+const StyledTitle = styled.h1`
+    color: #f0f0f0;
+    font-size: 24px;
+    text-align: center;
 `;
 
 export default App;
