@@ -11,13 +11,18 @@
 }
 
 .ant-form-item-label {
-  width: 80px;
-
+  min-width: 80px;
+  flex-grow: 1;
+  
   label {
     color: #f0f0f0 !important;
     font-size: 18px !important;
     font-weight: 600;
   }
+}
+
+.ant-form-item-control {
+  flex-grow: 2;
 }
 
 .ant-input-number {
