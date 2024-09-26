@@ -1,3 +1,18 @@
+# About 3D Box Visualizer
+
+## Stack
+1. Frontend: TypeScript, React, Three.js, Ant Design, styled-components.
+2. Backend is hosted on Replit. TypeScript, CORS, Express, Nodemon, ts-node. The index-replit.txt in this repository contains index.ts code that I used on Replit.
+
+## App functionality
+1. The user can change the box's length, width, and height via the form with three inputs and a button Calculate.
+2. Triangulation of the box (a set of triangles to be used for display) is computed on backend.
+3. Frontend receives data for the box display. The box is displayed using BufferGeometry.
+
+**Time spent on app development: 9-10 hours**
+
+==========================================================
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
