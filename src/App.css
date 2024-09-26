@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.box-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ant-input-number {
+  width: 100px;
+}
+
+.ant-input-number:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.canvas {
+  width: 800px;
+  height: 600px;
+  background-color: #ffffff;
+}
