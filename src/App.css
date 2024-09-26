@@ -37,21 +37,34 @@
   }
 }
 
-.container {
+.box-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f2f5;
-}
-
-.box-form {
+  padding: 0 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  gap: 20px;
+  width: 33%;
+}
+
+.ant-form-item {
+  margin: 0 !important;
+  align-self: center;
+}
+
+.ant-form-item-label {
+  width: 80px;
+
+  label {
+    color: #f0f0f0 !important;
+    font-size: 18px !important;
+    font-weight: 600;
+  }
 }
 
 .ant-input-number {
-  width: 100px;
+  flex-grow: 1;
+  width: inherit;
 }
 
 .ant-input-number:focus {
@@ -60,7 +73,5 @@
 }
 
 .canvas {
-  width: 800px;
-  height: 600px;
-  background-color: #ffffff;
+  background: #113B51;
 }

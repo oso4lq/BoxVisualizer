@@ -12,10 +12,10 @@ interface BoxProps {
 const Box: React.FC<BoxProps> = ({ meshData }) => {
     const mesh = useRef<THREE.Mesh>(null!);
 
-    useFrame(() => {
-        mesh.current.rotation.x += 0.01;
-        mesh.current.rotation.y += 0.01;
-    });
+    // useFrame(() => {
+    //     mesh.current.rotation.x += 0.01;
+    //     mesh.current.rotation.y += 0.01;
+    // });
 
     // Flatten vertices and triangles
     const vertices = meshData.vertices.flat();
@@ -24,6 +24,7 @@ const Box: React.FC<BoxProps> = ({ meshData }) => {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
     geometry.setIndex(indices);
+    geometry.computeVertexNormals(); // Compute normals for shading
 
     return (
         <mesh ref={mesh} geometry={geometry}>

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useEffect, useState } from 'react';
 import { Button, InputNumber, Form } from 'antd';
+import { OrbitControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import styled from 'styled-components';
 import 'antd/dist/antd.css';
-import './App.css';
 import Box from './Box';
+import './App.css';
 
 const App: React.FC = () => {
 
@@ -28,8 +30,12 @@ const App: React.FC = () => {
         }
     };
 
+    useEffect(() => {
+        handleCalculate();
+    }, []);
+
     return (
-        <div className="container">
+        <StyledContainer>
             <Form layout="inline" className="box-form">
                 <Form.Item label="Length">
                     <InputNumber
@@ -59,10 +65,21 @@ const App: React.FC = () => {
                 </Form.Item>
             </Form>
             <Canvas className="canvas">
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[10, 10, 5]} intensity={1} />
                 {boxData && <Box meshData={boxData} />}
+                <OrbitControls />
             </Canvas>
-        </div>
+        </StyledContainer>
     );
 };
+
+const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+    background-color: #6F90A2;
+`;
 
 export default App;
