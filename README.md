@@ -8,6 +8,7 @@
 1. The user can change the box's length, width, and height via the form with three inputs and a button Calculate.
 2. Triangulation of the box (a set of triangles to be used for display) is computed on backend.
 3. Frontend receives data for the box display. The box is displayed using BufferGeometry.
+4. The UI is user-friendly. The faces of the box are colored to make them distinguishable. Light and shadow are applied. The user can rotate the box by dragging the mouse. Box edges are marked with color with a hover effect.
 
 **Time spent on app development: 9-10 hours**
 
