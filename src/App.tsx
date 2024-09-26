@@ -3,7 +3,6 @@ import { Button, InputNumber, Form } from 'antd';
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import styled from 'styled-components';
-import 'antd/dist/antd.css';
 import Box from './Box';
 import './App.css';
 
