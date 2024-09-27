@@ -13,11 +13,11 @@ const App: React.FC = () => {
     const [height, setHeight] = useState(1);
     const [boxData, setBoxData] = useState<any>(null);
 
-    const API_URL = 'https://80bd4ca4-933a-407a-a690-dde3737f6d53-00-2zu5xuy6udy1i.kirk.replit.dev';
+    const API_URL = 'https://box-visualizer-backend.vercel.app/';
 
     const handleCalculate = async () => {
         try {
-            const response = await fetch(API_URL + '/box', {
+            const response = await fetch(API_URL + 'box/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ length, width, height }),

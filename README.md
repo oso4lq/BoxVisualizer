@@ -1,8 +1,9 @@
 # About 3D Box Visualizer
 
 ## Stack
-1. Frontend: TypeScript, React, Three.js, Ant Design, styled-components.
-2. Backend is hosted on Replit. TypeScript, CORS, Express, Nodemon, ts-node. The index-replit.txt in this repository contains index.ts code that I used on Replit.
+1. Frontend is hosted on Vercel. TypeScript, React, Three.js, Ant Design, styled-components.
+2. Backend is hosted on Vercel. TypeScript, CORS, Express, Nodemon, ts-node. The index-replit.txt in this repository contains index.ts code that I used on Replit.
+Check my other repository for the backend code: https://github.com/oso4lq/BoxVisualizer-Backend
 
 ## App functionality
 1. The user can change the box's length, width, and height via the form with three inputs and a button Calculate.
@@ -10,7 +11,7 @@
 3. Frontend receives data for the box display. The box is displayed using BufferGeometry.
 4. The UI is user-friendly. The faces of the box are colored to make them distinguishable. Light and shadow are applied. The user can rotate the box by dragging the mouse. Box edges are marked with color with a hover effect.
 
-**Time spent on app development: 9-10 hours**
+**Time spent on app development: ~10 hours**
 
 ==========================================================
 
